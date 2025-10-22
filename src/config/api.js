@@ -1,14 +1,14 @@
 // API Configuration
 const getApiUrl = () => {
-  // Check for environment variable first
-  const apiUrl = import.meta.env.VITE_API_URL;
-
-  if (apiUrl) {
-    return apiUrl;
+  // Production uses Vercel proxy, development uses direct connection
+  const isProduction = process.env.NODE_ENV === 'production';
+  
+  if (isProduction) {
+    return '/api'; // Vercel proxy will route to Azure backend
   }
-
-  // Fallback to Azure backend URL
-  return "http://food-analyzer-backend-sea.southeastasia.azurecontainer.io:8000";
+  
+  // Development - direct connection to Azure backend
+  return 'http://food-analyzer-backend-sea.southeastasia.azurecontainer.io:8000';
 };
 
 export const API_BASE_URL = getApiUrl();

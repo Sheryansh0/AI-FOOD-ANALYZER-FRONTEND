@@ -33,6 +33,7 @@ VITE_API_URL=http://your-backend-url:8000
 ```
 
 For development, you can use the Azure backend:
+
 ```env
 VITE_API_URL=http://food-analyzer-backend-sea.southeastasia.azurecontainer.io:8000
 ```

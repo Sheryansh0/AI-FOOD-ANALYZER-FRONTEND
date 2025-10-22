@@ -5,6 +5,10 @@
   "framework": "vite",
   "rewrites": [
     {
+      "source": "/api/(.*)",
+      "destination": "http://food-analyzer-backend-sea.southeastasia.azurecontainer.io:8000/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
